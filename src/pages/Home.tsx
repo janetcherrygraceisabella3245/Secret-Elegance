@@ -196,7 +196,6 @@ export default function Home() {
                               </div>
                             </div>
                             <p className="text-sm text-muted-foreground line-clamp-3 mb-4 leading-relaxed">
-                              {caregiver.biography}
                             </p>
                             <div className="pt-4 border-t border-border/50 flex justify-between items-center">
                               <span className="text-sm font-medium">${caregiver.hourlyRate}/hr</span>
