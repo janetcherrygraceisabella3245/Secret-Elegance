@@ -11,9 +11,9 @@ export default function AdminLogin() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    if (pin === "admin123") {
+    if (pin === "10@Secretelegance") {
       localStorage.setItem("admin_auth", "true")
-      setLocation("/admin/dashboard")
+      setLocation("/admin/Bookings")
     } else {
       setError(true)
       setPin("")
@@ -32,7 +32,7 @@ export default function AdminLogin() {
         <form onSubmit={handleLogin} className="space-y-4">
           <Input 
             type="password" 
-            placeholder="Enter PIN (admin123)" 
+            placeholder="Enter PIN....."
             value={pin}
             onChange={(e) => {
               setPin(e.target.value)

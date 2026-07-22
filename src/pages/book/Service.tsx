@@ -11,14 +11,14 @@ export default function BookService() {
 
   const handleSelect = (service: string) => {
     updateBookingState({ service })
-    setLocation("/book/Caregiver")
+    setLocation("/book/companion")
   }
 
   return (
       <BookingLayout currentStep={1} title="Select Experience">
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-6xl font-serif font-bold tracking-tight mb-4">
-            What are you craving tonight?
+            What are you craving today?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Choose the experience that matches your desire
@@ -26,17 +26,12 @@ export default function BookService() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Casual Hookup Card */}
           <Card
               className={`cursor-pointer overflow-hidden transition-all hover:shadow-2xl group ${bookingState.service === "Casual Hookup" ? "ring-2 ring-primary border-primary" : "border-border"}`}
               onClick={() => handleSelect("Casual Hookup")}
           >
             <div className="relative h-[380px] md:h-[460px] overflow-hidden">
-              <img
-                  src={image1}
-                  alt="Casual Hookup"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
+              <img src={image1} alt="Casual Hookup" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <h3 className="font-serif text-4xl font-bold mb-1">Casual Hookup</h3>
@@ -49,17 +44,12 @@ export default function BookService() {
             </CardContent>
           </Card>
 
-          {/* Passionate Overnight Card */}
           <Card
               className={`cursor-pointer overflow-hidden transition-all hover:shadow-2xl group ${bookingState.service === "Passionate Overnight" ? "ring-2 ring-primary border-primary" : "border-border"}`}
               onClick={() => handleSelect("Passionate Overnight")}
           >
             <div className="relative h-[380px] md:h-[460px] overflow-hidden">
-              <img
-                  src={image2}
-                  alt="Passionate Overnight"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
+              <img src={image2} alt="Passionate Overnight" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <h3 className="font-serif text-4xl font-bold mb-1">Passionate Overnight</h3>

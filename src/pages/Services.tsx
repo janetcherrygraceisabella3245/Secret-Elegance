@@ -24,7 +24,7 @@ export default function Services() {
     },
     {
       id: "passionate-overnight",
-      title: "Passionate Overnights & Extended time",
+      title: "Passionate Overnights",
       image: homeCareImg,
       desc: "Deeply sensual overnights and multi-hour experiences filled with intense pleasure, affection, and complete satisfaction with elite companions.",
       features: [

@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 import { Link, useLocation } from "wouter"
-import { LayoutDashboard, Calendar, Users, Heart, MessageSquare, LogOut } from "lucide-react"
+import {  Calendar, LogOut } from "lucide-react"
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const [location, setLocation] = useLocation()
@@ -18,11 +18,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   }
 
   const links = [
-    { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/admin/bookings", label: "Bookings", icon: Calendar },
-    { href: "/admin/caregivers", label: "Caregivers", icon: Heart },
-    { href: "/admin/clients", label: "Clients", icon: Users },
-    { href: "/admin/messages", label: "Messages", icon: MessageSquare },
   ]
 
   return (

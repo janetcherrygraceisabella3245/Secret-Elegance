@@ -46,33 +46,33 @@ export default function Login() {
     }
 
     return (
-        <div className="min-h-[100dvh] flex flex-col lg:flex-row bg-gradient-to-br from-pink-50 via-white to-rose-50">
+        <div className="min-h-[100dvh] flex flex-col lg:flex-row bg-gradient-to-br from-rose-50 via-white to-rose-50">
             {/* Left – Brand Panel */}
-            <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-pink-100 via-rose-50 to-pink-50">
-                <div className="absolute inset-0 opacity-30">
-                    <div className="absolute top-20 left-20 w-72 h-72 bg-pink-200 rounded-full blur-3xl" />
-                    <div className="absolute bottom-20 right-20 w-96 h-96 bg-rose-200 rounded-full blur-3xl" />
+            <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-[#2D3142] to-[#1a1d2e]">
+                <div className="absolute inset-0 opacity-20">
+                    <div className="absolute top-20 left-20 w-72 h-72 bg-[#E8798A] rounded-full blur-3xl" />
+                    <div className="absolute bottom-20 right-20 w-96 h-96 bg-rose-300 rounded-full blur-3xl" />
                 </div>
                 <div className="relative z-10 flex flex-col justify-between p-12 w-full">
                     <Link href="/" className="flex items-center gap-2 w-fit">
-                        <Heart className="w-7 h-7 text-pink-500 fill-pink-500" />
-                        <span className="text-2xl font-serif text-slate-800">Secret Elegance</span>
+                        <Heart className="w-7 h-7 text-[#E8798A] fill-[#E8798A]" />
+                        <span className="text-2xl font-serif text-white">Secret Elegance</span>
                     </Link>
 
                     <div className="max-w-md">
-                        <h2 className="text-4xl font-serif text-slate-800 leading-tight mb-4">
+                        <h2 className="text-4xl font-serif text-white leading-tight mb-4">
                             Welcome back to{" "}
-                            <span className="italic text-pink-500">graceful care</span>.
+                            <span className="italic text-[#E8798A]">Secret Elegance</span>.
                         </h2>
-                        <p className="text-slate-600 leading-relaxed">
-                            Sign in to manage your bookings, connect with your caregivers,
-                            and continue the exceptional care experience your family deserves.
+                        <p className="text-gray-300 leading-relaxed">
+                            Sign in continue your journey of unforgettable encounters.
                         </p>
                     </div>
 
-                    <p className="text-sm text-slate-500">
-                        © {new Date().getFullYear()} Secret Elegance. Premium private concierge care.
-                    </p>
+                    <div className="flex items-center space-x-2">
+                        <Heart className="w-6 h-6 fill-[#E8798A] text-[#E8798A]" />
+                        <span className="font-serif text-xl tracking-widest text-[#E8798A]">SE</span>
+                    </div>
                 </div>
             </div>
 
@@ -81,26 +81,26 @@ export default function Login() {
                 <div className="w-full max-w-md mx-auto">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-pink-500 mb-8 transition-colors lg:hidden"
+                        className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#E8798A] mb-8 transition-colors lg:hidden"
                     >
                         <ArrowLeft className="w-4 h-4" /> Back to home
                     </Link>
 
                     <div className="lg:hidden flex items-center gap-2 mb-8">
-                        <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
-                        <span className="text-xl font-serif text-slate-800">Secret Elegance</span>
+                        <Heart className="w-6 h-6 text-[#E8798A] fill-[#E8798A]" />
+                        <span className="text-xl font-serif text-[#2D3142]">Secret Desires</span>
                     </div>
 
                     <div className="mb-8">
-                        <h1 className="text-3xl font-serif text-slate-800 mb-2">Sign in</h1>
-                        <p className="text-slate-500">Enter your details to access your account.</p>
+                        <h1 className="text-3xl font-serif text-[#2D3142] mb-2">Sign in</h1>
+                        <p className="text-gray-500">Enter your details to access your account.</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div className="space-y-2">
-                            <Label htmlFor="email" className="text-slate-700">Email address</Label>
+                            <Label htmlFor="email" className="text-[#2D3142]">Email address</Label>
                             <div className="relative">
-                                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                 <Input
                                     id="email"
                                     type="email"
@@ -108,23 +108,23 @@ export default function Login() {
                                     required
                                     value={form.email}
                                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                    className="pl-10 h-12 border-slate-200 focus-visible:ring-pink-400"
+                                    className="pl-10 h-12 rounded-xl border-gray-200 focus-visible:ring-[#E8798A] focus-visible:border-[#E8798A]"
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
-                                <Label htmlFor="password" className="text-slate-700">Password</Label>
+                                <Label htmlFor="password" className="text-[#2D3142]">Password</Label>
                                 <Link
                                     href="/forgot-password"
-                                    className="text-sm text-pink-500 hover:text-pink-600"
+                                    className="text-sm text-[#E8798A] hover:text-[#d66b7c]"
                                 >
                                     Forgot password?
                                 </Link>
                             </div>
                             <div className="relative">
-                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                                 <Input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
@@ -132,12 +132,12 @@ export default function Login() {
                                     required
                                     value={form.password}
                                     onChange={(e) => setForm({ ...form, password: e.target.value })}
-                                    className="pl-10 pr-10 h-12 border-slate-200 focus-visible:ring-pink-400"
+                                    className="pl-10 pr-10 h-12 rounded-xl border-gray-200 focus-visible:ring-[#E8798A] focus-visible:border-[#E8798A]"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                                 >
                                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                 </button>
@@ -149,8 +149,9 @@ export default function Login() {
                                 id="remember"
                                 checked={form.remember}
                                 onCheckedChange={(v) => setForm({ ...form, remember: !!v })}
+                                className="border-gray-300 data-[state=checked]:bg-[#E8798A] data-[state=checked]:border-[#E8798A]"
                             />
-                            <Label htmlFor="remember" className="text-sm text-slate-600 cursor-pointer">
+                            <Label htmlFor="remember" className="text-sm text-gray-500 cursor-pointer">
                                 Keep me signed in
                             </Label>
                         </div>
@@ -158,16 +159,16 @@ export default function Login() {
                         <Button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full h-12 bg-pink-500 hover:bg-pink-600 text-white rounded-full font-medium shadow-lg shadow-pink-500/20 transition-all"
+                            className="w-full h-12 bg-[#E8798A] hover:bg-[#d66b7c] text-white rounded-full font-medium shadow-lg shadow-[#E8798A]/20 transition-all"
                         >
                             {isLoading ? "Signing in..." : "Sign in"}
                         </Button>
                     </form>
 
                     <div className="my-8 flex items-center gap-4">
-                        <div className="flex-1 h-px bg-slate-200" />
-                        <span className="text-xs text-slate-400 uppercase tracking-wider">or</span>
-                        <div className="flex-1 h-px bg-slate-200" />
+                        <div className="flex-1 h-px bg-gray-200" />
+                        <span className="text-xs text-gray-400 uppercase tracking-wider">or</span>
+                        <div className="flex-1 h-px bg-gray-200" />
                     </div>
 
                     <Button
@@ -175,7 +176,7 @@ export default function Login() {
                         variant="outline"
                         onClick={handleGoogle}
                         disabled={googleLoading}
-                        className="w-full h-12 rounded-full border-slate-200 hover:bg-slate-50"
+                        className="w-full h-12 rounded-full border-gray-200 hover:bg-gray-50 text-gray-700"
                     >
                         <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -186,9 +187,9 @@ export default function Login() {
                         {googleLoading ? "Redirecting..." : "Continue with Google"}
                     </Button>
 
-                    <p className="text-center text-slate-600 mt-8">
+                    <p className="text-center text-gray-500 mt-8">
                         Don't have an account?{" "}
-                        <Link href="/signup" className="text-pink-500 hover:text-pink-600 font-medium">
+                        <Link href="/signup" className="text-[#E8798A] hover:text-[#d66b7c] font-medium">
                             Create one
                         </Link>
                     </p>

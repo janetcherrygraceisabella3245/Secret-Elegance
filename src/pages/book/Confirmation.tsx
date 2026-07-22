@@ -1,41 +1,89 @@
-import { Link } from "wouter"
-import { motion } from "framer-motion"
-import { CheckCircle2 } from "lucide-react"
+import { useLocation } from "wouter"
+import { CheckCircle,  Calendar, Phone, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function BookConfirmation() {
-  const ref = sessionStorage.getItem("lastBookingRef") || "REF-DEMO123"
+export default function Confirmation() {
+  const [, setLocation] = useLocation()
+
+  const bookingRef = sessionStorage.getItem("lastBookingRef") || "BOOK-XXXXXX"
 
   return (
-    <div className="min-h-screen bg-secondary/10 py-20 px-4 flex flex-col items-center justify-center">
-      <motion.div 
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        className="bg-white rounded-[40px] p-10 md:p-16 shadow-2xl max-w-lg w-full text-center border border-border/50"
-      >
-        <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
-          <CheckCircle2 className="w-12 h-12 text-green-600" />
-        </div>
-        
-        <h1 className="text-4xl font-serif text-foreground mb-4">Payment Successful</h1>
-        <p className="text-muted-foreground text-lg mb-8">
-          Your booking has been confirmed. Our concierge team will review the details and reach out shortly.
-        </p>
-        
-        <div className="bg-secondary/30 rounded-2xl p-6 mb-10">
-          <span className="text-sm text-muted-foreground uppercase tracking-wider mb-2 block">Booking Reference</span>
-          <span className="text-2xl font-mono tracking-widest text-primary">{ref}</span>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-rose-50 to-white flex items-center justify-center p-6">
+        <div className="max-w-2xl w-full">
+          <div className="text-center mb-12">
+            <div className="mx-auto w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+              <CheckCircle className="w-12 h-12 text-green-600" />
+            </div>
+            <h1 className="text-5xl font-serif font-light mb-3">Booking Confirmed!</h1>
+            <p className="text-xl text-muted-foreground">Your companion has been reserved.</p>
+            <p className="text-sm text-muted-foreground mt-2">Reference: <span className="font-mono font-medium">{bookingRef}</span></p>
+          </div>
 
-        <div className="flex flex-col gap-4">
-          <Button asChild size="lg" className="rounded-full h-14">
-            <Link href="/admin/messages">Message Concierge</Link>
-          </Button>
-          <Button asChild variant="ghost" className="rounded-full">
-            <Link href="/">Return to Home</Link>
-          </Button>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Left Column - Confirmation Details */}
+            <div className="bg-white rounded-3xl p-8 shadow-sm border">
+              <h3 className="font-serif text-2xl mb-6">Your Booking Details</h3>
+
+              <div className="space-y-5">
+                <div className="flex gap-4">
+                  <Calendar className="w-5 h-5 text-[#E8798A] mt-1" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Date & Time</p>
+                    <p className="font-medium">Confirmed for your selected date</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <CheckCircle className="w-5 h-5 text-[#E8798A] mt-1" />
+                  <div>
+                    <p className="text-sm text-muted-foreground">Enjoy Your Experience</p>
+                    <p className="font-medium">Discretion and satisfaction guaranteed.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 pt-6 border-t text-sm text-muted-foreground">
+                Your card will be charged shortly.
+              </div>
+            </div>
+
+            {/* Right Column - Contact & Next Steps */}
+            <div className="bg-white rounded-3xl p-8 shadow-sm border flex flex-col">
+              <h3 className="font-serif text-2xl mb-6">Reach out?</h3>
+
+              <div className="space-y-6 flex-1">
+                <div>
+                  <div className="font-medium mb-2 flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-[#E8798A]" /> Admin Support
+                  </div>
+                  <p className="text-sm">Reach out on imessage and whatsapp</p>
+                  <p className="text-sm">+1 (270) 263-2058</p>
+                </div>
+
+                <div>
+                  <div className="font-medium mb-2 flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-[#E8798A]" /> Email Support
+                  </div>
+                  <p className="text-sm">.</p>
+                </div>
+              </div>
+
+              <div className="mt-auto pt-6 space-y-3">
+                <Button
+                    variant="outline"
+                    onClick={() => setLocation("/")}
+                    className="w-full rounded-full h-12"
+                >
+                  Return to Homepage
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-12">
+            Thank you for choosing Secret Desires • All encounters are between consenting adults
+          </p>
         </div>
-      </motion.div>
-    </div>
+      </div>
   )
 }

@@ -1,16 +1,13 @@
 import { motion } from "framer-motion"
 import { Link } from "wouter"
-import { ArrowRight, Star, ShieldCheck, HeartPulse, Clock } from "lucide-react"
+import { ArrowRight, ShieldCheck, HeartPulse, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useListCaregivers } from "@/hooks/useCaregivers"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import elderlyCareImg from "@/assets/1 (19).jpg"
 import homeCareImg from "@/assets/1 (16).jpg"
 
 export default function Home() {
-  const { data: caregivers = [] } = useListCaregivers()
-  const featuredCaregivers = caregivers.slice(0, 3)
 
   return (
       <div className="flex flex-col w-full min-h-screen">
@@ -156,61 +153,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Featured Caregivers */}
-        {featuredCaregivers.length > 0 && (
-            <section className="py-24 bg-white">
-              <div className="container mx-auto px-4 md:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-                  <div>
-                    <h2 className="text-3xl md:text-5xl font-serif text-foreground mb-4">Meet Our Companions</h2>
-                    <p className="text-muted-foreground max-w-xl">Stunning, passionate, and highly sought-after professionals ready to create chemistry with you.</p>
-                  </div>
-                  <Link href="/caregivers" className="text-primary font-medium flex items-center gap-2 hover:gap-3 transition-all">
-                    View all Companions <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-8">
-                  {featuredCaregivers.map((caregiver) => (
-                      <Link key={caregiver.id} href={`/caregivers/${caregiver.id}`}>
-                        <Card className="h-full hover:shadow-xl transition-all duration-300 group cursor-pointer border-transparent bg-secondary/20">
-                          <CardContent className="p-6">
-                            <div className="flex items-center gap-4 mb-6">
-                              <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-sm shrink-0">
-                                {caregiver.profilePhoto ? (
-                                    <img src={caregiver.profilePhoto} alt={caregiver.fullName} className="w-full h-full object-cover" />
-                                ) : (
-                                    <div className="w-full h-full bg-primary/20 flex items-center justify-center text-primary font-serif text-2xl">
-                                      {caregiver.fullName.charAt(0)}
-                                    </div>
-                                )}
-                              </div>
-                              <div>
-                                <h3 className="font-serif text-xl font-medium text-foreground mb-1 group-hover:text-primary transition-colors">{caregiver.fullName}</h3>
-                                <p className="text-sm text-muted-foreground mb-2">{caregiver.specialization}</p>
-                                <div className="flex items-center gap-1 text-amber-500">
-                                  <Star className="w-4 h-4 fill-current" />
-                                  <span className="text-sm font-medium text-foreground">{caregiver.rating.toFixed(1)}</span>
-                                </div>
-                              </div>
-                            </div>
-                            <p className="text-sm text-muted-foreground line-clamp-3 mb-4 leading-relaxed">
-                            </p>
-                            <div className="pt-4 border-t border-border/50 flex justify-between items-center">
-                              <span className="text-sm font-medium">${caregiver.hourlyRate}/hr</span>
-                              <span className="text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-                          View Profile <ArrowRight className="w-3 h-3" />
-                        </span>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </Link>
-                  ))}
-                </div>
-              </div>
-            </section>
-        )}
 
         {/* CTA Banner */}
         <section className="py-24 bg-primary text-primary-foreground text-center px-4">

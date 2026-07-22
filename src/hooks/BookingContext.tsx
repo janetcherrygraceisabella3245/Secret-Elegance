@@ -4,14 +4,14 @@ export interface BookingState {
   service: string
   caregiverId?: number
   caregiverName?: string
+  hourlyRate?: number
   date: Date | undefined
   time: string
   duration: string
-  locationType: "Home" | "Hospital"
+  locationType: "Hotel" | "Residence"
   locationDetails: {
-    hospitalName?: string
-    hospitalAddress?: string
-    roomNumber?: string
+    hotelName?: string
+    hotelAddress?: string
     homeAddress?: string
     landmark?: string
     notes?: string
@@ -29,7 +29,7 @@ const defaultState: BookingState = {
   date: undefined,
   time: "",
   duration: "",
-  locationType: "Home",
+  locationType: "Hotel",
   locationDetails: {}
 }
 
@@ -38,7 +38,7 @@ const BookingContext = React.createContext<BookingContextType | undefined>(undef
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [bookingState, setBookingState] = React.useState<BookingState>(() => {
     try {
-      const saved = localStorage.getItem("secret_elegance_booking")
+      const saved = localStorage.getItem("secret_desires_booking")
       if (saved) {
         const parsed = JSON.parse(saved)
         if (parsed.date) parsed.date = new Date(parsed.date)
@@ -51,7 +51,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   })
 
   React.useEffect(() => {
-    localStorage.setItem("secret_elegance_booking", JSON.stringify(bookingState))
+    localStorage.setItem("secret_desires_booking", JSON.stringify(bookingState))
   }, [bookingState])
 
   const updateBookingState = (updates: Partial<BookingState>) => {
@@ -60,13 +60,13 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
 
   const resetBookingState = () => {
     setBookingState(defaultState)
-    localStorage.removeItem("secret_elegance_booking")
+    localStorage.removeItem("secret_desires_booking")
   }
 
   return (
-    <BookingContext.Provider value={{ bookingState, updateBookingState, resetBookingState }}>
-      {children}
-    </BookingContext.Provider>
+      <BookingContext.Provider value={{ bookingState, updateBookingState, resetBookingState }}>
+        {children}
+      </BookingContext.Provider>
   )
 }
 

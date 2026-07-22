@@ -126,7 +126,7 @@ export default function Companions() {
                             <h3 className="font-serif text-2xl font-medium text-foreground group-hover:text-primary transition-colors">
                               {girl.fullName}
                             </h3>
-                            <p className="text-sm text-muted-foreground">{girl.age} • {girl.location}</p>
+                            <p className="text-sm text-muted-foreground">{girl.age} </p>
                           </div>
                           <div className="flex items-center gap-1 text-amber-500">
                             <Star className="w-5 h-5 fill-current" />

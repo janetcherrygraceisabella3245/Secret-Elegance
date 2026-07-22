@@ -12,8 +12,6 @@ import { Footer } from "@/components/Footer"
 // Public Pages
 import Home from "@/pages/Home"
 import Services from "@/pages/Services"
-import Caregivers from "@/pages/Caregivers"
-import CaregiverProfile from "@/pages/CaregiverProfile"
 import Rates from "@/pages/Rates"
 import About from "@/pages/About"
 import Contact from "@/pages/Contact"
@@ -41,14 +39,12 @@ import BookConfirmation from "@/pages/book/Confirmation"
 // Admin Pages
 import AdminLayout from "@/components/admin/AdminLayout"
 import AdminLogin from "@/pages/admin/Login"
-import AdminDashboard from "@/pages/admin/Dashboard"
-import AdminBookings from "@/pages/admin/Bookings"
-import AdminCaregivers from "@/pages/admin/Caregivers"
-import AdminClients from "@/pages/admin/Clients"
-import AdminMessages from "@/pages/admin/Messages"
 
 import NotFound from "@/pages/not-found"
 import CompanionProfile from "@/pages/companions/[id].tsx";
+import Companions from "@/pages/Companions.tsx";
+import AdminBookings from "@/pages/admin/Bookings.tsx";
+import AdminPaymentDetail from "@/pages/admin/PaymentDetail.tsx";
 
 const queryClient = new QueryClient()
 
@@ -79,12 +75,8 @@ function Router() {
         <Route path="/admin">
           <AdminLayout>
             <Switch>
-              <Route path="/admin/dashboard" component={AdminDashboard} />
-              <Route path="/admin/bookings" component={AdminBookings} />
-              <Route path="/admin/caregivers" component={AdminCaregivers} />
-              <Route path="/admin/clients" component={AdminClients} />
-              <Route path="/admin/messages" component={AdminMessages} />
-              <Route path="/admin" component={AdminDashboard} />
+              {/*<Route path="/admin/clients" component={AdminClients} />*/}
+              {/*<Route path="/admin/messages" component={AdminMessages} />*/}
               <Route component={NotFound} />
             </Switch>
           </AdminLayout>
@@ -93,24 +85,23 @@ function Router() {
         <Route path="/admin/*">
           <AdminLayout>
             <Switch>
-              <Route path="/admin/dashboard" component={AdminDashboard} />
+              {/*<Route path="/admin/clients" component={AdminClients} />*/}
+              {/*<Route path="/admin/messages" component={AdminMessages} />*/}
+              <Route path="/admin/login" component={AdminLogin} />
               <Route path="/admin/bookings" component={AdminBookings} />
-              <Route path="/admin/caregivers" component={AdminCaregivers} />
-              <Route path="/admin/clients" component={AdminClients} />
-              <Route path="/admin/messages" component={AdminMessages} />
+              <Route path="/admin/payment/:id" component={AdminPaymentDetail}/>
               <Route component={NotFound} />
             </Switch>
           </AdminLayout>
         </Route>
 
-        {/* Public & Booking Routes with Nav/Footer */}
         <Route path="*">
           <PublicLayout>
             <Switch>
               <Route path="/" component={Home} />
               <Route path="/services" component={Services} />
-              <Route path="/caregivers" component={Caregivers} />
-              <Route path="/caregivers/:id" component={CaregiverProfile} />
+              <Route path="/companion" component={Companions} />
+              <Route path="/companion/:id" component={CompanionProfile} />
               <Route path="/rates" component={Rates} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
@@ -123,7 +114,7 @@ function Router() {
                   <BookService />
                 </ProtectedRoute>
               </Route>
-              <Route path="/book/caregiver">
+              <Route path="/book/companion">
                 <ProtectedRoute>
                   <BookCaregiver />
                 </ProtectedRoute>

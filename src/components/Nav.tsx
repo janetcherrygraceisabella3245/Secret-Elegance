@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, useLocation } from "wouter"
-import { Heart, Menu, X, User, LogOut, Calendar, Settings } from "lucide-react"
+import { Heart, Menu, X, User, LogOut, Calendar } from "lucide-react"
 import { useAuth } from "@/hooks/AuthContext"
 import {
   DropdownMenu,
@@ -21,7 +21,7 @@ export function Nav() {
   const navLinks = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Caregivers", href: "/caregivers" },
+    { label: "Companion", href: "/companion" },
     { label: "FAQ", href: "/faq" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -106,26 +106,9 @@ export function Nav() {
                                 </div>
                               </DropdownMenuLabel>
                               <DropdownMenuSeparator />
-                              <DropdownMenuItem asChild>
-                                <Link href="/account" className="cursor-pointer">
-                                  <User className="w-4 h-4 mr-2" /> My Account
-                                </Link>
-                              </DropdownMenuItem>
-                              <DropdownMenuItem asChild>
-                                <Link href="/account/bookings" className="cursor-pointer">
-                                  <Calendar className="w-4 h-4 mr-2" /> My Bookings
-                                </Link>
-                              </DropdownMenuItem>
-                              <DropdownMenuItem asChild>
-                                <Link href="/account/settings" className="cursor-pointer">
-                                  <Settings className="w-4 h-4 mr-2" /> Settings
-                                </Link>
-                              </DropdownMenuItem>
-                              <DropdownMenuSeparator />
                               <DropdownMenuItem
                                   onClick={handleLogout}
-                                  className="text-red-600 cursor-pointer focus:text-red-600 focus:bg-red-50"
-                              >
+                                  className="text-red-600 cursor-pointer focus:text-red-600 focus:bg-red-50">
                                 <LogOut className="w-4 h-4 mr-2" /> Sign out
                               </DropdownMenuItem>
                             </DropdownMenuContent>

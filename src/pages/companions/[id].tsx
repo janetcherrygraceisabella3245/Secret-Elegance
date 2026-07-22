@@ -26,6 +26,7 @@ import elena2 from "@/assets/1 (24).jpg"
 import elena3 from "@/assets/1 (26).jpg"
 import elena4 from "@/assets/1 (27).jpg"
 import elena5 from "@/assets/1 (20).jpg"
+import {useBooking} from "@/hooks/BookingContext.tsx";
 
 const companions = [
     {
@@ -79,6 +80,7 @@ const companions = [
 ]
 
 export default function CompanionProfile() {
+    const { updateBookingState } = useBooking()   // ← Added this
     const [location, setLocation] = useLocation()
     const id = parseInt(location.split('/').pop() || '1')
     const girl = companions.find(c => c.id === id)
@@ -91,6 +93,10 @@ export default function CompanionProfile() {
     const closeLightbox = () => setSelectedImage(null)
 
     const handleBookNow = () => {
+        updateBookingState({
+            caregiverId: girl.id,
+            caregiverName: girl.fullName
+        })
         setLocation("/book/date")
     }
 
@@ -115,7 +121,7 @@ export default function CompanionProfile() {
                             <img
                                 src={girl.mainImage}
                                 alt={girl.fullName}
-                                className="w-full h-auto max-h-[650px] object-contain bg-black/5"
+                                className="w-full h-auto max-h-162.5 object-contain bg-black/5"
                             />
                         </div>
 
@@ -144,7 +150,7 @@ export default function CompanionProfile() {
                                 <h1 className="text-5xl font-light font-['Cormorant_Garamond'] text-[#2D3142]">
                                     {girl.fullName}
                                 </h1>
-                                <p className="text-xl text-gray-500 mt-1">{girl.age} • {girl.location}</p>
+                                <p className="text-xl text-gray-500 mt-1">{girl.age} </p>
                             </div>
                             <div className="text-right">
                                 <div className="flex items-center gap-1 text-4xl font-medium">
@@ -175,7 +181,7 @@ export default function CompanionProfile() {
             {/* Lightbox */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 bg-black/95 z-[100] flex items-center justify-center p-4"
+                    className="fixed inset-0 bg-black/95 z-100 flex items-center justify-center p-4"
                     onClick={closeLightbox}
                 >
                     <button
