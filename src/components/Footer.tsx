@@ -48,13 +48,10 @@ export function Footer() {
             <div>
               <h4 className="font-serif text-lg font-medium mb-6">Contact</h4>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-primary shrink-0" />
-                  <span className="text-muted-foreground text-sm">123 Private Drive, Luxury District, Beverly Hills, CA 90210</span>
-                </li>
+
                 <li className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary shrink-0" />
-                  <span className="text-muted-foreground text-sm">+1 (800) 555-DESIRE</span>
+                  <span className="text-muted-foreground text-sm">+1 (270) 263-2058</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary shrink-0" />
@@ -70,7 +67,6 @@ export function Footer() {
             </p>
             <div className="flex gap-6">
               <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors text-sm">Privacy Policy</Link>
-              <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors text-sm">Terms of Service</Link>
             </div>
           </div>
         </div>

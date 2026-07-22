@@ -30,8 +30,8 @@ export default function Contact() {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground mb-1">Phone</h4>
-                    <p className="text-muted-foreground text-sm">+1 (800) 555-Hookup</p>
+                    <h4 className="font-medium text-foreground mb-1">Via imessage and whatsapp</h4>
+                    <p className="text-muted-foreground text-sm">+1 (270) 263-2058</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
